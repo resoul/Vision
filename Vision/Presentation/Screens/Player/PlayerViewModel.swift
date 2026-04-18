@@ -178,7 +178,7 @@ final class PlayerViewModel: ObservableObject {
         return episode
     }
 
-    func buildEpisodeBrowseItems() -> [EpisodeBrowseItem] {
+    func buildEpisodeBrowseItems() async -> [EpisodeBrowseItem] {
         guard let context = currentContext,
               case .episode(_, let currentSeason, let currentEpisode, let studio, _, _, _) = context,
               let translation = translations.first(where: { $0.studio == studio })
@@ -188,6 +188,7 @@ final class PlayerViewModel: ObservableObject {
         for (seasonIndex, season) in translation.seasons.enumerated() {
             let seasonNum = seasonIndex + 1
             for (episodeIndex, episode) in season.episodes.enumerated() {
+                let posterURL = await playerUseCase.preferredURL(from: episode.streams) ?? ""
                 let episodeNum = episodeIndex + 1
                 let progress = progressManager.getProgress(
                     movieId: context.movieId,
@@ -198,7 +199,7 @@ final class PlayerViewModel: ObservableObject {
                     season: seasonNum,
                     episode: episodeNum,
                     title: episode.title,
-                    posterURL: "",
+                    posterURL: posterURL,
                     progress: progress?.fraction,
                     isWatched: progressManager.isWatched(movieId: context.movieId, season: seasonNum, episode: episodeNum),
                     isCurrent: seasonNum == currentSeason && episodeNum == currentEpisode
@@ -374,7 +375,11 @@ final class PlayerViewModel: ObservableObject {
     }
 
     private func rebuildEpisodeBrowseItems() {
-        episodeBrowseItems = buildEpisodeBrowseItems()
+        Task { [weak self] in
+            guard let self = self else { return }
+            let items = await self.buildEpisodeBrowseItems()
+            self.episodeBrowseItems = items
+        }
     }
 }
 

@@ -1,6 +1,17 @@
 import UIKit
 
 extension UIView {
+    func addSubviews(_ views: UIView...) {
+        views.forEach { addSubview($0) }
+    }
+    
+    func constraintToCenter(in view: UIView, offset: CGPoint = .zero) {
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: offset.x).isActive = true
+        centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: offset.y).isActive = true
+    }
+    
     func constraints(
         top: NSLayoutYAxisAnchor?,
         leading: NSLayoutXAxisAnchor?,

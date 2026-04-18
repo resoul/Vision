@@ -1,6 +1,9 @@
 import UIKit
 
 final class PlaybackScrubberControl: UIControl {
+
+    // MARK: - Appearance
+
     var minimumTrackTintColor: UIColor = .white {
         didSet { fillView.backgroundColor = minimumTrackTintColor }
     }
@@ -10,6 +13,9 @@ final class PlaybackScrubberControl: UIControl {
     var thumbTintColor: UIColor = .white {
         didSet { thumbView.backgroundColor = thumbTintColor }
     }
+
+    // MARK: - Value (0…1)
+
     var value: CGFloat = 0 {
         didSet {
             value = min(max(value, 0), 1)
@@ -17,11 +23,16 @@ final class PlaybackScrubberControl: UIControl {
         }
     }
 
+    // MARK: - Subviews
+
     private let trackView = UIView()
     private let fillView = UIView()
     private let thumbView = UIView()
+
     private var fillWidthConstraint: NSLayoutConstraint?
     private var thumbCenterConstraint: NSLayoutConstraint?
+
+    // MARK: - Init
 
     override var canBecomeFocused: Bool { true }
 
@@ -64,7 +75,6 @@ final class PlaybackScrubberControl: UIControl {
         thumbCenterConstraint = thumbView.centerXAnchor.constraint(equalTo: leadingAnchor)
         thumbCenterConstraint?.isActive = true
 
-        // Ensure scrubber is visible even before first style update.
         trackView.backgroundColor = maximumTrackTintColor
         fillView.backgroundColor = minimumTrackTintColor
         thumbView.backgroundColor = thumbTintColor
@@ -72,23 +82,14 @@ final class PlaybackScrubberControl: UIControl {
 
     required init?(coder: NSCoder) { fatalError() }
 
+    // MARK: - Layout
+
     override func layoutSubviews() {
         super.layoutSubviews()
         updateLayout()
     }
 
-    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        let delta: CGFloat = 0.05
-        if presses.contains(where: { $0.type == .leftArrow }) {
-            value -= delta
-            sendActions(for: .valueChanged)
-        } else if presses.contains(where: { $0.type == .rightArrow }) {
-            value += delta
-            sendActions(for: .valueChanged)
-        } else {
-            super.pressesEnded(presses, with: event)
-        }
-    }
+    // MARK: - Focus
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         coordinator.addCoordinatedAnimations {
@@ -97,6 +98,8 @@ final class PlaybackScrubberControl: UIControl {
             self.trackView.transform = focused ? CGAffineTransform(scaleX: 1.0, y: 1.5) : .identity
         }
     }
+
+    // MARK: - Private
 
     private func updateLayout() {
         guard bounds.width > 0 else { return }

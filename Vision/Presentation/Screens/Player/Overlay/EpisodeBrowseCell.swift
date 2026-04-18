@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 final class EpisodeBrowseCell: UICollectionViewCell {
     static let reuseID = "EpisodeBrowseCell"
@@ -16,6 +17,8 @@ final class EpisodeBrowseCell: UICollectionViewCell {
     private var baseBorderWidth: CGFloat = 0
     private var baseBorderColor: CGColor?
 
+    private var currentVideoURL: String?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -31,18 +34,35 @@ final class EpisodeBrowseCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         posterView.cancelPoster()
+        posterView.image = nil
+        currentVideoURL = nil
     }
 
     func configure(item: EpisodeBrowseItem, style: ThemeStyle) {
-        if item.posterURL.isEmpty {
+        if !item.posterURL.isEmpty {
+            posterView.image = UIImage(systemName: "photo")
+            posterView.tintColor = UIColor.white.withAlphaComponent(0.55)
+            posterView.contentMode = .scaleAspectFill
+            posterView.backgroundColor = UIColor.white.withAlphaComponent(0.08)
+            currentVideoURL = item.posterURL
+            VideoThumbnailCache.shared.thumbnail(for: item.posterURL) { [weak self] image in
+                guard let self = self else { return }
+                // Ensure cell hasn't been reused for another item
+                guard self.currentVideoURL == item.posterURL else { return }
+                if let image = image {
+                    self.posterView.contentMode = .scaleAspectFill
+                    self.posterView.backgroundColor = .clear
+                    self.posterView.image = image
+                } else {
+//                     keep placeholder if generation failed
+                }
+            }
+        } else {
             posterView.image = UIImage(systemName: "photo")
             posterView.tintColor = UIColor.white.withAlphaComponent(0.55)
             posterView.contentMode = .center
             posterView.backgroundColor = UIColor.white.withAlphaComponent(0.08)
-        } else {
-            posterView.contentMode = .scaleAspectFill
-            posterView.backgroundColor = .clear
-            posterView.setPoster(url: item.posterURL, placeholder: nil)
+            currentVideoURL = nil
         }
 
         episodeLabel.text = String(format: L10n.Player.seasonEpisodeFormat, item.season, item.episode)

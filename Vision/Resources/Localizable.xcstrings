@@ -938,6 +938,12 @@
             "state" : "translated",
             "value" : "Dark"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Темная"
+          }
         }
       }
     },
@@ -949,6 +955,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Light"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Светлая"
           }
         }
       }
@@ -998,6 +1010,12 @@
             "state" : "translated",
             "value" : "Cartoons"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мультфильмы"
+          }
         }
       }
     },
@@ -1009,6 +1027,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Favorites"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Избранное"
           }
         }
       }
@@ -1022,6 +1046,12 @@
             "state" : "translated",
             "value" : "Home"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Главная"
+          }
         }
       }
     },
@@ -1034,6 +1064,12 @@
             "state" : "translated",
             "value" : "Movie"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фильмы"
+          }
         }
       }
     },
@@ -1045,6 +1081,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Search"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск"
           }
         }
       }

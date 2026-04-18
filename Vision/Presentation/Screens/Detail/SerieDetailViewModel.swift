@@ -7,7 +7,7 @@ final class SerieDetailViewModel {
     private let favoritesUseCase: FavoritesUseCase
     private let progressManager: PlaybackProgressManagerProtocol
     private let playerUseCase: PlayerUseCaseProtocol
-    
+
     @Published var detail: ContentDetail?
     @Published var translations: [Translation] = []
     @Published var activeTranslation: Translation?
@@ -15,10 +15,11 @@ final class SerieDetailViewModel {
     @Published var isLoading = false
     @Published var isFavorite = false
     @Published var progressUpdated = UUID()
-    
+    @Published var resolvedTranslationQualities: [String: String] = [:]
+
     private var cancellables = Set<AnyCancellable>()
     var onPlayRequested: ((PlaybackContext) -> Void)?
-    
+
     init(
         movie: ContentItem,
         useCase: GetMovieDetailUseCaseProtocol,
@@ -31,10 +32,9 @@ final class SerieDetailViewModel {
         self.favoritesUseCase = favoritesUseCase
         self.progressManager = progressManager
         self.playerUseCase = playerUseCase
-        
         setupBindings()
     }
-    
+
     private func setupBindings() {
         favoritesUseCase.favoritesPublisher
             .map { [weak self] favorites in
@@ -43,52 +43,80 @@ final class SerieDetailViewModel {
             .receive(on: DispatchQueue.main)
             .assign(to: &$isFavorite)
     }
-    
+
     func load() async {
         isLoading = true
         defer { isLoading = false }
-        
+
         do {
             let (detailData, translationsData) = try await useCase.fetchDetail(movie: movie, isSeries: true)
-            
             await MainActor.run {
                 self.detail = detailData
                 self.translations = translationsData
                 self.activeTranslation = translationsData.first
             }
+            await resolveTranslationQualities(translationsData)
         } catch {
             print("Error loading series detail: \(error)")
         }
     }
-
-    func toggleFavorite() {
-        Task {
-            do {
-                try await favoritesUseCase.toggle(movie)
-            } catch {
-                print("Failed to toggle favorite: \(error)")
+    
+    private func resolveTranslationQualities(_ list: [Translation]) async {
+        var result: [String: String] = [:]
+        for translation in list {
+            let sampleStreams: [String: String]
+            if let firstEpisode = translation.seasons.first?.episodes.first {
+                sampleStreams = firstEpisode.streams
+            } else {
+                sampleStreams = translation.streams
             }
+
+            if let resolved = await playerUseCase.resolvePreferredStream(from: sampleStreams) {
+                result[translation.studio] = resolved.quality
+            } else if let best = translation.bestQuality {
+                result[translation.studio] = best
+            }
+        }
+        await MainActor.run {
+            self.resolvedTranslationQualities = result
         }
     }
     
+    func displayQuality(for translation: Translation) -> String {
+        if let resolved = resolvedTranslationQualities[translation.studio] {
+            return resolved
+        }
+        
+        if let firstEpisode = translation.seasons.first?.episodes.first {
+            return Translation(studio: translation.studio,
+                               streams: firstEpisode.streams,
+                               seasons: []).bestQuality ?? ""
+        }
+        return translation.bestQuality ?? ""
+    }
+    
+    func toggleFavorite() {
+        Task { try? await favoritesUseCase.toggle(movie) }
+    }
+
     func selectSeason(index: Int) {
         activeSeasonIndex = index
     }
-    
+
     func refreshProgress() {
         progressUpdated = UUID()
     }
-    
+
     func selectTranslation(index: Int) {
         activeTranslation = translations[safe: index]
         activeSeasonIndex = 0
     }
-    
+
     func play(episode: Episode) {
         guard let translation = activeTranslation,
               let season = translation.seasons[safe: activeSeasonIndex],
               let episodeIndex = season.episodes.firstIndex(where: { $0.id == episode.id }) else { return }
-        
+
         Task {
             guard let stream = await playerUseCase.resolvePreferredStream(from: episode.streams) else { return }
 
@@ -104,14 +132,21 @@ final class SerieDetailViewModel {
             onPlayRequested?(context)
         }
     }
-    
+
     func getProgress(episodeIndex: Int) -> Double? {
-        // Implementation for progress tracking
-        return progressManager.getProgress(movieId: movie.id, season: activeSeasonIndex + 1, episode: episodeIndex + 1)?.fraction
+        progressManager.getProgress(
+            movieId: movie.id,
+            season: activeSeasonIndex + 1,
+            episode: episodeIndex + 1
+        )?.fraction
     }
-    
+
     func isWatched(episodeIndex: Int) -> Bool {
-        return progressManager.isWatched(movieId: movie.id, season: activeSeasonIndex + 1, episode: episodeIndex + 1)
+        progressManager.isWatched(
+            movieId: movie.id,
+            season: activeSeasonIndex + 1,
+            episode: episodeIndex + 1
+        )
     }
 }
 

@@ -7,6 +7,7 @@ protocol PlayerUseCaseProtocol {
     func savePlaybackState(movieId: Int, context: PlaybackContext) async throws
     func fetchTranslations(for item: ContentItem) async throws -> [Translation]
     func resolvePreferredStream(from streams: [String: String]) async -> (quality: String, url: String)?
+    func preferredURL(from streams: [String: String]) async -> String?
 }
 
 final class PlayerUseCase: PlayerUseCaseProtocol {
@@ -173,6 +174,10 @@ final class PlayerUseCase: PlayerUseCaseProtocol {
         }
         guard let best = sorted.first else { return nil }
         return (best.key, best.value)
+    }
+    
+    func preferredURL(from streams: [String : String]) async -> String? {
+        await resolvePreferredStream(from: streams)?.url
     }
     
     // MARK: - Private
