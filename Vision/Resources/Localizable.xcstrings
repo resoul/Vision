@@ -1,0 +1,1086 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "common.back" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Назад"
+          }
+        }
+      }
+    },
+    "common.cancel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отмена"
+          }
+        }
+      }
+    },
+    "common.confirm" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подтвердить"
+          }
+        }
+      }
+    },
+    "detail.actors" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actors"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В ролях"
+          }
+        }
+      }
+    },
+    "detail.audio_track" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Audio Track"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Озвучка"
+          }
+        }
+      }
+    },
+    "detail.country" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Country"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Страна"
+          }
+        }
+      }
+    },
+    "detail.director" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Director"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Режиссёр"
+          }
+        }
+      }
+    },
+    "detail.favorites.add" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To Favorites"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В избранное"
+          }
+        }
+      }
+    },
+    "detail.favorites.in" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Favorites"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В избранном"
+          }
+        }
+      }
+    },
+    "detail.playback_unavailable" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Playback is temporarily unavailable for this content."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Воспроизведение для этого контента временно недоступно."
+          }
+        }
+      }
+    },
+    "detail.season" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Season"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сезон"
+          }
+        }
+      }
+    },
+    "detail.slogan" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slogan"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Слоган"
+          }
+        }
+      }
+    },
+    "detail.watch" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Watch"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Смотреть"
+          }
+        }
+      }
+    },
+    "detail.watched" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Watched"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Просмотрено"
+          }
+        }
+      }
+    },
+    "detail.writer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Writer"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сценарист"
+          }
+        }
+      }
+    },
+    "genre.cartoons.adventure" : {
+      "comment" : "Genre name for cartoons that fall under the \"Adventure\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.cartoons.anime" : {
+      "comment" : "Name of a cartoon genre.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.cartoons.comedy" : {
+      "comment" : "Name of a cartoon genre.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.cartoons.family" : {
+      "comment" : "Name of a genre within the \"Cartoons\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.cartoons.fantasy" : {
+      "comment" : "Name of a cartoon genre.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.cartoons.kids" : {
+      "comment" : "Name of a genre within the \"Cartoons\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.cartoons.scifi" : {
+      "comment" : "Name of a genre within the \"Cartoons\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.cartoons.series" : {
+      "comment" : "Name of a genre within the \"Cartoons\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.action" : {
+      "comment" : "Name of a movie genre.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.adventure" : {
+      "comment" : "Name of a genre within the \"Movies\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.animation" : {
+      "comment" : "Name of a movie genre.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.biography" : {
+      "comment" : "Name of a genre under the \"Movies\" section in the app.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.comedy" : {
+      "comment" : "Name of a comedy movie genre.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.crime" : {
+      "comment" : "Name of a movie genre.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.documentary" : {
+      "comment" : "Name of a genre within the \"Movies\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.drama" : {
+      "comment" : "Name of a movie genre.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.fantasy" : {
+      "comment" : "Name of a fantasy movie genre.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.history" : {
+      "comment" : "Name of a genre within the \"Movies\" section.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.horror" : {
+      "comment" : "Name of a genre within the \"Movies\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.romance" : {
+      "comment" : "Name of a genre within the \"Movies\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.scifi" : {
+      "comment" : "Name of a genre within the \"Movies\" section.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.sport" : {
+      "comment" : "Name of a movie genre.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.movies.thriller" : {
+      "comment" : "Name of a genre within the \"Movies\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.series.action" : {
+      "comment" : "Name of a genre for series.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.series.anime" : {
+      "comment" : "Name of a genre within the \"Series\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.series.comedy" : {
+      "comment" : "Name of a comedy-themed TV series genre.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.series.crime" : {
+      "comment" : "Name of a genre within the \"Series\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.series.documentary" : {
+      "comment" : "Name of a genre within the \"Series\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.series.drama" : {
+      "comment" : "Name of a genre for TV series.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.series.fantasy" : {
+      "comment" : "Name of a genre within the \"Series\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.series.horror" : {
+      "comment" : "Horror movies.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.series.reality" : {
+      "comment" : "Name of a genre within the \"Series\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.series.romance" : {
+      "comment" : "Name of a genre within the \"Series\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.series.scifi" : {
+      "comment" : "Name of a genre within the \"Series\" category.",
+      "isCommentAutoGenerated" : true
+    },
+    "genre.series.thriller" : {
+      "comment" : "Genre name for series with the genre \"Thriller\".",
+      "isCommentAutoGenerated" : true
+    },
+    "home.error.loading" : {
+      "comment" : "Error message to be shown when loading content fails.",
+      "isCommentAutoGenerated" : true
+    },
+    "home.title" : {
+      "comment" : "Title of the home screen.",
+      "isCommentAutoGenerated" : true
+    },
+    "player.added" : {
+      "comment" : "Label for the \"Added\" field in the video player.",
+      "isCommentAutoGenerated" : true
+    },
+    "player.audio_track" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Audio Track"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Озвучка"
+          }
+        }
+      }
+    },
+    "player.author" : {
+      "comment" : "Title of the video player section that displays the video author.",
+      "isCommentAutoGenerated" : true
+    },
+    "player.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Description"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Описание"
+          }
+        }
+      }
+    },
+    "player.episodes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Episodes"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эпизоды"
+          }
+        }
+      }
+    },
+    "player.resume.continue" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продолжить"
+          }
+        }
+      }
+    },
+    "player.resume.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You paused at %@. Would you like to resume or start over?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы остановились на %@. Хотите продолжить или начать заново?"
+          }
+        }
+      }
+    },
+    "player.resume.restart" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Over"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начать сначала"
+          }
+        }
+      }
+    },
+    "player.resume.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resume Playback?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продолжить просмотр?"
+          }
+        }
+      }
+    },
+    "player.season_episode_format" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Season %d · Episode %d"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сезон %d · Серия %d"
+          }
+        }
+      }
+    },
+    "player.settings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки"
+          }
+        }
+      }
+    },
+    "player.upcoming_episodes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next Episodes"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Следующие серии"
+          }
+        }
+      }
+    },
+    "player.views" : {
+      "comment" : "Label for the number of views on a video.",
+      "isCommentAutoGenerated" : true
+    },
+    "search.empty_results" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nothing found for your request."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ничего не найдено по вашему запросу."
+          }
+        }
+      }
+    },
+    "search.placeholder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search movies and series..."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск фильмов и сериалов..."
+          }
+        }
+      }
+    },
+    "settings.about.version" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Версия"
+          }
+        }
+      }
+    },
+    "settings.autoplay.off" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Off"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выкл"
+          }
+        }
+      }
+    },
+    "settings.autoplay.on" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вкл"
+          }
+        }
+      }
+    },
+    "settings.autoplay.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autoplay"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Автовоспроизведение"
+          }
+        }
+      }
+    },
+    "settings.cache.hint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Defines the RAM limits for caching posters and previews."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Определяет лимиты RAM для кэширования постеров и превью."
+          }
+        }
+      }
+    },
+    "settings.cache.no_limit" : {
+      "comment" : "Text for an option in the settings menu that allows the user to disable the file size limit for cached content.",
+      "isCommentAutoGenerated" : true
+    },
+    "settings.cache.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Image Cache"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кэш изображений"
+          }
+        }
+      }
+    },
+    "settings.font.title" : {
+      "comment" : "Title of the font settings section in the settings screen.",
+      "isCommentAutoGenerated" : true
+    },
+    "settings.language.title" : {
+      "comment" : "Title of the section in the settings menu related to language settings.",
+      "isCommentAutoGenerated" : true
+    },
+    "settings.quality.title" : {
+      "comment" : "Title of the quality setting in the settings screen.",
+      "isCommentAutoGenerated" : true
+    },
+    "settings.section.about" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "О приложении"
+          }
+        }
+      }
+    },
+    "settings.section.interface" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interface"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Интерфейс"
+          }
+        }
+      }
+    },
+    "settings.section.memory" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Memory"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Память"
+          }
+        }
+      }
+    },
+    "settings.section.playback" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Playback"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Воспроизведение"
+          }
+        }
+      }
+    },
+    "settings.section.storage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Storage"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Хранилище"
+          }
+        }
+      }
+    },
+    "settings.storage.clear_history" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Watch History"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очистить историю просмотров"
+          }
+        }
+      }
+    },
+    "settings.storage.clear_posters" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Posters Cache"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очистить кэш постеров"
+          }
+        }
+      }
+    },
+    "settings.storage.confirm.clear_history" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear watch history? This action cannot be undone."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очистить историю просмотров? Это действие нельзя отменить."
+          }
+        }
+      }
+    },
+    "settings.storage.confirm.clear_posters" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear posters cache?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очистить кэш постеров?"
+          }
+        }
+      }
+    },
+    "settings.storage.database" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Database"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "База данных"
+          }
+        }
+      }
+    },
+    "settings.storage.favorites" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorites"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Избранное"
+          }
+        }
+      }
+    },
+    "settings.storage.history" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Watch History"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "История просмотров"
+          }
+        }
+      }
+    },
+    "settings.storage.posters" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posters Cache"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кэш постеров"
+          }
+        }
+      }
+    },
+    "settings.storage.preferences" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferences"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки"
+          }
+        }
+      }
+    },
+    "settings.theme.dark" : {
+      "comment" : "Title for the \"Dark\" theme option in the settings.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dark"
+          }
+        }
+      }
+    },
+    "settings.theme.light" : {
+      "comment" : "Option in the settings menu to switch to a light theme.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Light"
+          }
+        }
+      }
+    },
+    "settings.theme.midnight" : {
+      "comment" : "Option in the settings menu to change the app theme to a midnight color scheme.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Midnight"
+          }
+        }
+      }
+    },
+    "settings.theme.title" : {
+      "comment" : "Title of the \"Theme\" section in the settings screen.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        }
+      }
+    },
+    "settings.title" : {
+      "comment" : "Title of the settings screen.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        }
+      }
+    },
+    "tab.cartoons" : {
+      "comment" : "Title for the \"Cartoons\" tab in the tab bar.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cartoons"
+          }
+        }
+      }
+    },
+    "tab.favorites" : {
+      "comment" : "Title for the \"Favorites\" tab in the tab bar.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorites"
+          }
+        }
+      }
+    },
+    "tab.home" : {
+      "comment" : "Title for the \"Home\" tab in the tab bar.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        }
+      }
+    },
+    "tab.movies" : {
+      "comment" : "Title of the \"Movies\" tab in the tab bar.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Movie"
+          }
+        }
+      }
+    },
+    "tab.search" : {
+      "comment" : "Title of the search tab.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        }
+      }
+    },
+    "tab.series" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Series"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сериалы"
+          }
+        }
+      }
+    },
+    "tab.watch_history" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "History"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Смотрю"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}

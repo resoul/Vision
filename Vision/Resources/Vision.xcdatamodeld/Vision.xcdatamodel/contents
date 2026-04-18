@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedVersion="1624" systemVersion="23D60" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDFavorite" cocoaClass="CDFavorite" persistenceType="SQLite">
+        <attribute name="addedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="NO" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="year" optional="YES" attributeType="String"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="genre" optional="YES" attributeType="String"/>
+        <attribute name="rating" optional="YES" attributeType="String"/>
+        <attribute name="duration" optional="YES" attributeType="String"/>
+        <attribute name="isSeries" optional="NO" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="translate" optional="YES" attributeType="String"/>
+        <attribute name="isAdIn" optional="NO" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="movieURL" optional="YES" attributeType="String"/>
+        <attribute name="posterURL" optional="YES" attributeType="String"/>
+        <attribute name="lastAdded" optional="YES" attributeType="String"/>
+        <attribute name="actorsJSON" optional="YES" attributeType="String"/>
+        <attribute name="directorsJSON" optional="YES" attributeType="String"/>
+        <attribute name="genreListJSON" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CDHistory" cocoaClass="CDHistory" persistenceType="SQLite">
+        <attribute name="lastWatchedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="NO" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="year" optional="YES" attributeType="String"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="genre" optional="YES" attributeType="String"/>
+        <attribute name="rating" optional="YES" attributeType="String"/>
+        <attribute name="duration" optional="YES" attributeType="String"/>
+        <attribute name="isSeries" optional="NO" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="translate" optional="YES" attributeType="String"/>
+        <attribute name="isAdIn" optional="NO" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="movieURL" optional="YES" attributeType="String"/>
+        <attribute name="posterURL" optional="YES" attributeType="String"/>
+        <attribute name="lastAdded" optional="YES" attributeType="String"/>
+        <attribute name="actorsJSON" optional="YES" attributeType="String"/>
+        <attribute name="directorsJSON" optional="YES" attributeType="String"/>
+        <attribute name="genreListJSON" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CDEpisodeProgress" cocoaClass="CDEpisodeProgress" persistenceType="SQLite">
+        <attribute name="movieId" optional="NO" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="episodeId" optional="NO" attributeType="String"/>
+        <attribute name="position" optional="NO" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="watched" optional="NO" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="CDPlaybackState" cocoaClass="CDPlaybackState" persistenceType="SQLite">
+        <attribute name="movieId" optional="NO" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="season" optional="NO" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="episode" optional="NO" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="studio" optional="YES" attributeType="String"/>
+        <attribute name="quality" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <elements>
+        <element name="CDFavorite" positionX="-63" positionY="-18" width="128" height="345"/>
+        <element name="CDHistory" positionX="117" positionY="-18" width="128" height="345"/>
+        <element name="CDEpisodeProgress" positionX="297" positionY="-18" width="128" height="105"/>
+    </elements>
+</model>

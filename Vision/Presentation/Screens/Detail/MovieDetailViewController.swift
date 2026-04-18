@@ -1,0 +1,204 @@
+import UIKit
+import Combine
+
+final class MovieDetailViewController: BaseDetailViewController {
+    
+    private let viewModel: MovieDetailViewModel
+    
+    private let translationsStack: UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .vertical
+        sv.spacing = 10
+        sv.alignment = .fill
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
+    
+    init(
+        viewModel: MovieDetailViewModel,
+        themeManager: ThemeManagerProtocol,
+        languageManager: LanguageManagerProtocol,
+        fontManager: FontSettingsManagerProtocol
+    ) {
+        self.viewModel = viewModel
+        super.init(
+            movie: viewModel.detail?.toContentItem() ?? ContentItem(id: 0, title: "", year: "", description: "", genre: "", rating: "", duration: "", type: .movie, translate: "", isAdIn: false, movieURL: "", posterURL: "", actors: [], directors: [], genreList: [], lastAdded: nil), // Fallback
+            themeManager: themeManager,
+            languageManager: languageManager,
+            fontManager: fontManager
+        )
+    }
+    
+    // Using a simpler init for now to allow Factory usage
+    convenience init(
+        movie: ContentItem,
+        viewModel: MovieDetailViewModel,
+        themeManager: ThemeManagerProtocol,
+        languageManager: LanguageManagerProtocol,
+        fontManager: FontSettingsManagerProtocol
+    ) {
+        self.init(viewModel: viewModel, themeManager: themeManager, languageManager: languageManager, fontManager: fontManager)
+    }
+
+    required init?(coder: NSCoder) { fatalError() }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupMovieUI()
+        bindViewModel()
+        
+        Task { await viewModel.load() }
+    }
+    
+    private func setupMovieUI() {
+        contentView.addSubview(translationsStack)
+        
+        NSLayoutConstraint.activate([
+            translationsStack.topAnchor.constraint(equalTo: infoStack.bottomAnchor, constant: 40),
+            translationsStack.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            translationsStack.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            translationsStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -80)
+        ])
+        
+        favoriteButton.onPrimaryAction = { [weak self] in self?.viewModel.toggleFavorite() }
+        playButton.onPrimaryAction = { [weak self] in 
+            if let first = self?.viewModel.translations.first {
+                self?.viewModel.play(translation: first)
+            }
+        }
+    }
+    
+    private func bindViewModel() {
+        viewModel.$detail
+            .compactMap { (detail: ContentDetail?) -> ContentDetail? in detail }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] detail in
+                self?.populateExtendedData(detail)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$translations
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] translations in
+                self?.rebuildTranslations(translations)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoading in
+                isLoading ? self?.startLoading() : self?.stopLoading()
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$isFavorite
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isFav in
+                self?.favoriteButton.setTitle(isFav ? L10n.Detail.inFavorites : L10n.Detail.addToFavorites)
+                self?.favoriteButton.setIcon(UIImage(systemName: isFav ? "checkmark" : "plus"))
+            }
+            .store(in: &cancellables)
+            
+        viewModel.$isWatched
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isWatched in
+                self?.updateWatchedStatus(isWatched)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func updateWatchedStatus(_ isWatched: Bool) {
+        // Find existing watched pill and remove if exists
+        metaStack.arrangedSubviews.forEach { 
+            if ($0 as? DetailPillView)?.text == L10n.Detail.watched {
+                $0.removeFromSuperview()
+            }
+        }
+        
+        if isWatched {
+            let pill = DetailPillView(text: L10n.Detail.watched, color: UIColor.systemGreen.withAlphaComponent(0.6))
+            metaStack.insertArrangedSubview(pill, at: 0)
+        }
+    }
+    
+    private func populateExtendedData(_ detail: ContentDetail) {
+        setPlaybackAvailability(isUnavailable: detail.isNotMovie)
+        translationsStack.isHidden = detail.isNotMovie
+        descriptionLabel.text = detail.description
+        
+        // Populate info stack
+        infoStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        
+        let rows = [
+            (L10n.Detail.country, detail.countries.joined(separator: ", ")),
+            (L10n.Detail.director, detail.directors.joined(separator: ", ")),
+            (L10n.Detail.writer, detail.writers.joined(separator: ", ")),
+            (L10n.Detail.actors, detail.actors.prefix(5).joined(separator: ", ")),
+            (L10n.Detail.slogan, detail.slogan)
+        ]
+        
+        posterIV.setPoster(url: detail.posterFullURL, placeholder: nil)
+        backdropIV.setPoster(url: detail.posterFullURL, placeholder: nil)
+        
+        for (key, value) in rows {
+            let row = DetailInfoRow()
+            row.set(key: key, value: value, lines: key == L10n.Detail.actors ? 2 : 1)
+            infoStack.addArrangedSubview(row)
+        }
+        
+        rebuildMeta(detail)
+        rebuildRatings(detail)
+        applyStyle(themeManager.theme.style)
+    }
+    
+    private func rebuildMeta(_ detail: ContentDetail) {
+        metaStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        let pills = [
+            (detail.year, UIColor.systemGray),
+            (detail.genres.first ?? "", UIColor.systemBlue),
+            (detail.duration, UIColor.systemGray),
+            (detail.mpaa, UIColor.systemRed)
+        ]
+        
+        for (text, color) in pills where !text.isEmpty && text != "—" {
+            metaStack.addArrangedSubview(DetailPillView(text: text, color: color.withAlphaComponent(0.6)))
+        }
+    }
+    
+    private func rebuildRatings(_ detail: ContentDetail) {
+        ratingsStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        
+        if detail.kinopoiskRating != "—" {
+            ratingsStack.addArrangedSubview(RatingBadgeView(logo: "КП", logoColor: .systemOrange, rating: detail.kinopoiskRating, votes: detail.kinopoiskVotes))
+        }
+        if detail.imdbRating != "—" {
+            ratingsStack.addArrangedSubview(RatingBadgeView(logo: "IMDb", logoColor: .systemYellow, rating: detail.imdbRating, votes: detail.imdbVotes))
+        }
+        if !detail.userRating.isEmpty {
+            ratingsStack.addArrangedSubview(RatingBadgeView(logo: "👍", logoColor: .white, rating: detail.userRating, votes: "\(detail.userLikes + detail.userDislikes)"))
+        }
+    }
+    
+    private func rebuildTranslations(_ list: [Translation]) {
+        translationsStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        for translation in list {
+            let row = TranslationRow(studio: translation.studio, quality: translation.bestQuality ?? "")
+            row.onPlay = { [weak self] in self?.viewModel.play(translation: translation) }
+            row.setThemeStyle(themeManager.theme.style)
+            translationsStack.addArrangedSubview(row)
+        }
+    }
+}
+
+// Helper mapping for the dummy content item
+private extension ContentDetail {
+    func toContentItem() -> ContentItem {
+        ContentItem(
+            id: id, title: title, year: year, description: description,
+            genre: genres.first ?? "", rating: userRating, duration: duration,
+            type: isSeries ? .series(seasons: []) : .movie,
+            translate: "", isAdIn: false, movieURL: "", posterURL: posterFullURL,
+            actors: actors, directors: directors, genreList: genres, lastAdded: lastAdded
+        )
+    }
+}
